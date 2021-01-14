@@ -63,7 +63,7 @@ namespace QLPT
 
 
         #region Events
-        // 
+        // gán các dữ liệu nấn vào vào textBox
         private void dgvBill_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > 0)
@@ -98,25 +98,33 @@ namespace QLPT
             double newNumberElectric = Convert.ToDouble(txtNewNumberElectirc.Text);
             double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
             double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
-
-            if(oldNumberWater > newNumberWater || oldNumberElectric >newNumberElectric)
+            try
             {
-                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
-                loadBillList();
-            }
-            else
-            {
-                if (BillDAO.Instance.InsertBill(idBill, idRoom, CMND, oldNumberWater, newNumberWater, oldNumberElectric, newNumberElectric))
+                if (oldNumberWater > newNumberWater || oldNumberElectric > newNumberElectric)
                 {
-                    MessageBox.Show("Thêm hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
                     loadBillList();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                    loadBillList();
+                    if (BillDAO.Instance.InsertBill(idBill, idRoom, CMND, oldNumberWater, newNumberWater, oldNumberElectric, newNumberElectric))
+                    {
+                        MessageBox.Show("Thêm hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                        loadBillList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                        loadBillList();
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
+                loadBillList();
+            }
+            
 
             
 
@@ -127,16 +135,26 @@ namespace QLPT
         {
             string idBill = txtIDBill.Text;
 
-            if (BillDAO.Instance.DelBill(idBill))
+            try
             {
-                MessageBox.Show("Xóa hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                if (BillDAO.Instance.DelBill(idBill))
+                {
+                    MessageBox.Show("Xóa hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBillList();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBillList();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Xóa hóa đơn THẤT BẠI!!! Mời bạn xem lại MÃ HÓA ĐƠN", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
-            else
-            {
-                MessageBox.Show("Xóa hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadBillList();
-            }
+
+            
         }
 
 
@@ -146,25 +164,40 @@ namespace QLPT
             string idBill = txtIDBill.Text;
             string idRoom = cbxIDRoom.Text;
             string CMND = cbxCMND.Text;
-            DateTime dateTime = Convert.ToDateTime(txtDateTime.Text);
             double oldNumberElectric = Convert.ToDouble(txtOldNumberElectirc.Text);
             double newNumberElectric = Convert.ToDouble(txtNewNumberElectirc.Text);
             double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
             double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
 
-            if (BillDAO.Instance.EditBill(idBill, idRoom, CMND, dateTime, oldNumberWater, newNumberWater, oldNumberElectric, newNumberElectric))
+            try
             {
-                MessageBox.Show("Sửa hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
-                loadBillList();
+                if (oldNumberWater > newNumberWater || oldNumberElectric > newNumberElectric)
+                {
+                    MessageBox.Show("Sửa hóa đơn THẤT BẠI!!! Mời bạn xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
+                    loadBillList();
+                }
+                else
+                {
+                    if (BillDAO.Instance.EditBill(idBill, idRoom, CMND, oldNumberWater, newNumberWater, oldNumberElectric, newNumberElectric))
+                    {
+                        MessageBox.Show("Sửa hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                        loadBillList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                        loadBillList();
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sửa hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
         }
 
-
+        // Đổi tên cột trong dgv
         private void frmBill_Load(object sender, EventArgs e)
         {
 
