@@ -245,6 +245,7 @@
             this.txtPriceRoom.Name = "txtPriceRoom";
             this.txtPriceRoom.Size = new System.Drawing.Size(207, 22);
             this.txtPriceRoom.TabIndex = 9;
+            this.txtPriceRoom.Text = "0";
             // 
             // label13
             // 
@@ -262,6 +263,7 @@
             this.txtNewNumberWater.Name = "txtNewNumberWater";
             this.txtNewNumberWater.Size = new System.Drawing.Size(207, 22);
             this.txtNewNumberWater.TabIndex = 8;
+            this.txtNewNumberWater.Text = "0";
             // 
             // label9
             // 
@@ -279,6 +281,7 @@
             this.txtOldNumberWater.Name = "txtOldNumberWater";
             this.txtOldNumberWater.Size = new System.Drawing.Size(207, 22);
             this.txtOldNumberWater.TabIndex = 7;
+            this.txtOldNumberWater.Text = "0";
             // 
             // label8
             // 
@@ -296,6 +299,7 @@
             this.txtNewNumberElectirc.Name = "txtNewNumberElectirc";
             this.txtNewNumberElectirc.Size = new System.Drawing.Size(207, 22);
             this.txtNewNumberElectirc.TabIndex = 6;
+            this.txtNewNumberElectirc.Text = "0";
             // 
             // label7
             // 
@@ -313,6 +317,7 @@
             this.txtOldNumberElectirc.Name = "txtOldNumberElectirc";
             this.txtOldNumberElectirc.Size = new System.Drawing.Size(207, 22);
             this.txtOldNumberElectirc.TabIndex = 5;
+            this.txtOldNumberElectirc.Text = "0";
             // 
             // label6
             // 

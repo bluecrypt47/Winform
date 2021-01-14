@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -70,62 +71,89 @@ namespace QLPT
         // Thêm
         private void btnAddRoomNon_Click_1(object sender, EventArgs e)
         {
-            string idRoom = txtIDRoom.Text;
-            string idBuilding = cbxIDBuilding.Text;
-            double numberPeopleRoom = Convert.ToDouble(cbxNumberRoom.Text);
-            double priceRoom = Convert.ToDouble(txtPriceRoom.Text);
-
-            if (RoomNonDAO.Instance.InsertRoomNon(idRoom, idBuilding, numberPeopleRoom, priceRoom))
+            try
             {
-                MessageBox.Show("Thêm phòng thành công!!!", "Thông báo", MessageBoxButtons.OK);
-                loadListRoomNon();
+                string idRoom = txtIDRoom.Text;
+                string idBuilding = cbxIDBuilding.Text;
+                double numberPeopleRoom = Convert.ToDouble(cbxNumberRoom.Text);
+                double priceRoom = Convert.ToDouble(txtPriceRoom.Text);
 
+                if (RoomNonDAO.Instance.InsertRoomNon(idRoom, idBuilding, numberPeopleRoom, priceRoom))
+                {
+                    MessageBox.Show("Thêm phòng thành công!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListRoomNon();
+
+                }
+                else
+                {
+                    MessageBox.Show("Thêm phòng thất bại!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListRoomNon();
+                }
             }
-            else
+            catch(SqlException)
             {
-                MessageBox.Show("Thêm phòng thất bại!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm phòng thất bại!!!\n Vui lòng kiểm tra lại MÃ PHÒNG", "Thông báo", MessageBoxButtons.OK);
                 loadListRoomNon();
             }
+            
         }
 
 
         // Xóa
         private void btnDelDetailsRoom_Click(object sender, EventArgs e)
         {
-            string idRoom = txtIDRoom.Text;
+            try
+            {
+                string idRoom = txtIDRoom.Text;
 
-            if (RoomNonDAO.Instance.DelRoom(idRoom))
+                if (RoomNonDAO.Instance.DelRoom(idRoom))
+                {
+                    MessageBox.Show("Xóa phòng thành công!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListRoomNon();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa phòng thất bại!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListRoomNon();
+                }
+            }
+            catch(SqlException ex)
             {
-                MessageBox.Show("Xóa phòng thành công!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa phòng thất bại!!!\n Vui lòng kiểm tra lại MÃ PHÒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListRoomNon();
             }
-            else
-            {
-                MessageBox.Show("Xóa phòng thất bại!!!", "Thông báo", MessageBoxButtons.OK);
-                loadListRoomNon();
-            }
+            
         }
 
         // Sửa
         private void btnEditDetailsRoom_Click(object sender, EventArgs e)
         {
-            string idRoom = txtIDRoom.Text;
-            string idBuilding = cbxIDBuilding.Text;
-            double numberPeopleRoom = Convert.ToDouble(cbxNumberRoom.Text);
-            string statusRoom = txtStatusRoom.Text;
-            double priceRoom = Convert.ToDouble(txtPriceRoom.Text);
-
-            if (RoomNonDAO.Instance.EditRoom(idRoom, idBuilding, numberPeopleRoom, statusRoom, priceRoom))
+            try
             {
-                MessageBox.Show("Sửa phòng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
-                loadListRoomNon();
+                string idRoom = txtIDRoom.Text;
+                string idBuilding = cbxIDBuilding.Text;
+                double numberPeopleRoom = Convert.ToDouble(cbxNumberRoom.Text);
+                string statusRoom = txtStatusRoom.Text;
+                double priceRoom = Convert.ToDouble(txtPriceRoom.Text);
 
+                if (RoomNonDAO.Instance.EditRoom(idRoom, idBuilding, numberPeopleRoom, statusRoom, priceRoom))
+                {
+                    MessageBox.Show("Sửa phòng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListRoomNon();
+
+                }
+                else
+                {
+                    MessageBox.Show("Sửa phòng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListRoomNon();
+                }
             }
-            else
+            catch(SqlException)
             {
-                MessageBox.Show("Sửa phòng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa phòng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ PHÒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListRoomNon();
             }
+            
         }
 
 

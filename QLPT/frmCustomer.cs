@@ -34,39 +34,57 @@ namespace QLPT
         // Thêm
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            string cmnd = txtIDCard.Text;
-            string surName = txtSurName.Text;
-            string lastName = txtLastName.Text;
-            string name = txtFirstName.Text;
-            string sexual = txtSexual.Text;
+            try
+            {
+                string cmnd = txtIDCard.Text;
+                string surName = txtSurName.Text;
+                string lastName = txtLastName.Text;
+                string name = txtFirstName.Text;
+                string sexual = txtSexual.Text;
 
-            if (CustomerDAO.Instance.InsertCustomer(cmnd, surName, lastName, name, sexual))
+                if (CustomerDAO.Instance.InsertCustomer(cmnd, surName, lastName, name, sexual))
+                {
+                    MessageBox.Show("Thêm khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadCustomerList();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm khách hàng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadCustomerList();
+                }
+            }
+            catch(Exception)
             {
-                MessageBox.Show("Thêm khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm khách hàng THẤT BẠI!!!\n Vui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
                 loadCustomerList();
             }
-            else
-            {
-                MessageBox.Show("Thêm khách hàng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadCustomerList();
-            }
+            
         }
 
         // Xóa
         private void btnDelCustomer_Click(object sender, EventArgs e)
         {
-            string cmnd = txtIDCard.Text;
+            try
+            {
+                string cmnd = txtIDCard.Text;
 
-            if (CustomerDAO.Instance.DelCustomer(cmnd))
+                if (CustomerDAO.Instance.DelCustomer(cmnd))
+                {
+                    MessageBox.Show("Xóa khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadCustomerList();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa khách hàng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadCustomerList();
+                }
+            }
+            catch(Exception)
             {
-                MessageBox.Show("Xóa khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa khách hàng THẤT BẠI!!!\n Vui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
                 loadCustomerList();
             }
-            else
-            {
-                MessageBox.Show("Xóa khách hàng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadCustomerList();
-            }
+            
         }
 
 
@@ -74,22 +92,31 @@ namespace QLPT
         // Sửa
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            string cmnd = txtIDCard.Text;
-            string surName = txtSurName.Text;
-            string lastName = txtLastName.Text;
-            string name = txtFirstName.Text;
-            string sexual = txtSexual.Text;
+            try
+            {
+                string cmnd = txtIDCard.Text;
+                string surName = txtSurName.Text;
+                string lastName = txtLastName.Text;
+                string name = txtFirstName.Text;
+                string sexual = txtSexual.Text;
 
-            if (CustomerDAO.Instance.UpdateCustomer(cmnd, surName, lastName, name, sexual))
+                if (CustomerDAO.Instance.UpdateCustomer(cmnd, surName, lastName, name, sexual))
+                {
+                    MessageBox.Show("Sửa khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadCustomerList();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa khách hàng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadCustomerList();
+                }
+            }
+            catch(Exception)
             {
-                MessageBox.Show("Sửa khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa khách hàng THẤT BẠI!!!\n Vui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
                 loadCustomerList();
             }
-            else
-            {
-                MessageBox.Show("Sửa khách hàng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadCustomerList();
-            }
+            
         }
 
         private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)

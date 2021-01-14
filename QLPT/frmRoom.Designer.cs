@@ -279,6 +279,7 @@
             this.txtPriceRoom.Name = "txtPriceRoom";
             this.txtPriceRoom.Size = new System.Drawing.Size(230, 22);
             this.txtPriceRoom.TabIndex = 5;
+            this.txtPriceRoom.Text = "0";
             // 
             // label6
             // 
@@ -332,7 +333,6 @@
             // 
             // cbxNumberRoom
             // 
-            this.cbxNumberRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNumberRoom.FormattingEnabled = true;
             this.cbxNumberRoom.Items.AddRange(new object[] {
             "1",
@@ -343,6 +343,7 @@
             this.cbxNumberRoom.Size = new System.Drawing.Size(230, 24);
             this.cbxNumberRoom.Sorted = true;
             this.cbxNumberRoom.TabIndex = 3;
+            this.cbxNumberRoom.Text = "1";
             // 
             // label5
             // 

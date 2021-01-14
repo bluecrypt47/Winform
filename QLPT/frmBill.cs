@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -91,18 +92,19 @@ namespace QLPT
         // Thêm
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            string idBill = txtIDBill.Text;
-            string idRoom = cbxIDRoom.Text;
-            string CMND = cbxCMND.Text;
-            double oldNumberElectric = Convert.ToDouble(txtOldNumberElectirc.Text);
-            double newNumberElectric = Convert.ToDouble(txtNewNumberElectirc.Text);
-            double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
-            double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
             try
             {
+                string idBill = txtIDBill.Text;
+                string idRoom = cbxIDRoom.Text;
+                string CMND = cbxCMND.Text;
+                double oldNumberElectric = Convert.ToDouble(txtOldNumberElectirc.Text);
+                double newNumberElectric = Convert.ToDouble(txtNewNumberElectirc.Text);
+                double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
+                double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
+
                 if (oldNumberWater > newNumberWater || oldNumberElectric > newNumberElectric)
                 {
-                    MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! \nVui lòng xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
                     loadBillList();
                 }
                 else
@@ -119,9 +121,9 @@ namespace QLPT
                     }
                 }
             }
-            catch(Exception ex)
+            catch(SqlException)
             {
-                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!!  \nVui lòng kiểm tra lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
             
@@ -133,10 +135,9 @@ namespace QLPT
         // Xóa
         private void btnDelCustomer_Click(object sender, EventArgs e)
         {
-            string idBill = txtIDBill.Text;
-
             try
             {
+                string idBill = txtIDBill.Text;
                 if (BillDAO.Instance.DelBill(idBill))
                 {
                     MessageBox.Show("Xóa hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -148,9 +149,9 @@ namespace QLPT
                     loadBillList();
                 }
             }
-            catch(Exception ex)
+            catch(SqlException )
             {
-                MessageBox.Show("Xóa hóa đơn THẤT BẠI!!! Mời bạn xem lại MÃ HÓA ĐƠN", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa hóa đơn THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HÓA ĐƠN", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
 
@@ -161,16 +162,17 @@ namespace QLPT
         // Sửa
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            string idBill = txtIDBill.Text;
-            string idRoom = cbxIDRoom.Text;
-            string CMND = cbxCMND.Text;
-            double oldNumberElectric = Convert.ToDouble(txtOldNumberElectirc.Text);
-            double newNumberElectric = Convert.ToDouble(txtNewNumberElectirc.Text);
-            double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
-            double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
 
             try
             {
+                string idBill = txtIDBill.Text;
+                string idRoom = cbxIDRoom.Text;
+                string CMND = cbxCMND.Text;
+                double oldNumberElectric = Convert.ToDouble(txtOldNumberElectirc.Text);
+                double newNumberElectric = Convert.ToDouble(txtNewNumberElectirc.Text);
+                double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
+                double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
+
                 if (oldNumberWater > newNumberWater || oldNumberElectric > newNumberElectric)
                 {
                     MessageBox.Show("Sửa hóa đơn THẤT BẠI!!! Mời bạn xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
@@ -190,9 +192,9 @@ namespace QLPT
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
         }

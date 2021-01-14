@@ -72,65 +72,95 @@ namespace QLPT
 
 
         // Sửa
-        private void btnEditAccount_Click(object sender, EventArgs e)
+        private void btnEditContract_Click(object sender, EventArgs e)
         {
-            string idConstract = txtIDContract.Text;
-            string numberRoom = cbxNumberRoom.Text;
-            string cmnd = cbxCMND.Text;
-            DateTime datetime = Convert.ToDateTime(txtDateTime.Text);
-            string status = cbxStatusDepositMoney.Text;
-            double deposit = Convert.ToDouble(txtDepositMoney.Text);
+            try
+            {
+                string idConstract = txtIDContract.Text;
+                string numberRoom = cbxNumberRoom.Text;
+                string cmnd = cbxCMND.Text;
+                DateTime datetime = Convert.ToDateTime(txtDateTime.Text);
+                string status = cbxStatusDepositMoney.Text;
+                double deposit = Convert.ToDouble(txtDepositMoney.Text);
 
-            if (ContractDAO.Instance.EditContract(idConstract, numberRoom, cmnd, datetime, status, deposit))
-            {
-                MessageBox.Show("Sửa hợp đồng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
-                loadListContract();
+                if (ContractDAO.Instance.EditContract(idConstract, numberRoom, cmnd, datetime, status, deposit))
+                {
+                    MessageBox.Show("Sửa hợp đồng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListContract();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa hợp đồng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListContract();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sửa hợp đồng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa hợp đồng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListContract();
             }
         }
+
 
         // Thêm
-        private void btnAddAccount_Click(object sender, EventArgs e)
+        private void btnAddContract_Click(object sender, EventArgs e)
         {
-            string idConstract = txtIDContract.Text;
-            string numberRoom = cbxNumberRoom.Text;
-            string cmnd = cbxCMND.Text;
-            DateTime datetime = Convert.ToDateTime(txtDateTime.Text);
-            string status = cbxStatusDepositMoney.Text;
-            double deposit = Convert.ToDouble(txtDepositMoney.Text);
+            
 
-            if (ContractDAO.Instance.InsertContract(idConstract, numberRoom, cmnd, datetime, status, deposit))
+            try
             {
-                MessageBox.Show("Thêm hợp đồng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
-                loadListContract();
+                string idConstract = txtIDContract.Text;
+                string numberRoom = cbxNumberRoom.Text;
+                string cmnd = cbxCMND.Text;
+                string status = cbxStatusDepositMoney.Text;
+                double deposit = Convert.ToDouble(txtDepositMoney.Text);
+
+                if (ContractDAO.Instance.InsertContract(idConstract, numberRoom, cmnd, status, deposit))
+                {
+                    MessageBox.Show("Thêm hợp đồng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListContract();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm hợp đồng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListContract();
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Thêm hợp đồng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm hợp đồng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListContract();
             }
         }
+
 
         // Xóa
-        private void btnDelAccount_Click(object sender, EventArgs e)
+        private void btnDelContract_Click(object sender, EventArgs e)
         {
-            string idConstract = txtIDContract.Text;
+            
+            try
+            {
+                string idConstract = txtIDContract.Text;
 
-            if (ContractDAO.Instance.DelContract(idConstract))
-            {
-                MessageBox.Show("Xóa hợp đồng tHÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
-                loadListContract();
+                if (ContractDAO.Instance.DelContract(idConstract))
+                {
+                    MessageBox.Show("Xóa hợp đồng tHÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListContract();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa hợp đồng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadListContract();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Xóa hợp đồng THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa hợp đồng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListContract();
             }
         }
+
+
 
         private void frmContract_Load(object sender, EventArgs e)
         {
@@ -147,7 +177,10 @@ namespace QLPT
             dgvContract.Columns[8].HeaderText = "Tên";
             dgvContract.Columns[9].HeaderText = "Giới tính";
         }
+
+
         #endregion
 
+        
     }
 }

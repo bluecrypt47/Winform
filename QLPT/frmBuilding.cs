@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -47,36 +48,56 @@ namespace QLPT
         // Thêm
         private void btnAddBuilding_Click(object sender, EventArgs e)
         {
-            string idBuilding = txtIDBuilding.Text;
-            string addressBuildidng = txtAddressBuilding.Text;
+            try
+            {
+                string idBuilding = txtIDBuilding.Text;
+                string addressBuildidng = txtAddressBuilding.Text;
 
-            if (BuildingDAO.Instance.InsertBuilding(idBuilding, addressBuildidng))
+                if (BuildingDAO.Instance.InsertBuilding(idBuilding, addressBuildidng))
+                {
+                    MessageBox.Show("Thêm dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBuildingList();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm dãy nhà THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBuildingList();
+                }
+            }
+            catch(SqlException)
             {
-                MessageBox.Show("Thêm dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                //MessageBox.Show(ex.Message);
+                MessageBox.Show("Thêm dãy nhà THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ DÃY NHÀ!!!", "Thông báo", MessageBoxButtons.OK);
                 loadBuildingList();
             }
-            else
-            {
-                MessageBox.Show("Thêm dãy nhà THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadBuildingList();
-            }
+            
         }
 
         // Xóa Building
         private void btnDelBuilding_Click(object sender, EventArgs e)
         {
-            //lsvBuilding.Items.Clear();
-            string idBuilding = txtIDBuilding.Text;
-            if (BuildingDAO.Instance.DelBuilding(idBuilding))
+            try
             {
-                MessageBox.Show("Xóa dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                string idBuilding = txtIDBuilding.Text;
+
+                if (BuildingDAO.Instance.DelBuilding(idBuilding))
+                {
+                    MessageBox.Show("Xóa dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBuildingList();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa dãy nhà THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBuildingList();
+                }
+            }
+            catch(SqlException)
+            {
+                MessageBox.Show("Xóa dãy nhà THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ DÃY NHÀ!!!", "Thông báo", MessageBoxButtons.OK);
                 loadBuildingList();
             }
-            else
-            {
-                MessageBox.Show("Xóa dãy nhà THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadBuildingList();
-            }
+            
+            
         }
 
         
@@ -86,19 +107,29 @@ namespace QLPT
         private void btnEditBuilding_Click(object sender, EventArgs e)
         {
 
-            string idBuilding = txtIDBuilding.Text;
-            string addressBuilding = txtAddressBuilding.Text;
+            try
+            {
 
-            if (BuildingDAO.Instance.UpdateBuilding(idBuilding, addressBuilding))
+                string idBuilding = txtIDBuilding.Text;
+                string addressBuilding = txtAddressBuilding.Text;
+
+                if (BuildingDAO.Instance.UpdateBuilding(idBuilding, addressBuilding))
+                {
+                    MessageBox.Show("Sửa dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBuildingList();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa dãy nhà THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBuildingList();
+                }
+            }
+            catch(SqlException)
             {
-                MessageBox.Show("Sửa dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa dãy nhà THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ DÃY NHÀ!!!", "Thông báo", MessageBoxButtons.OK);
                 loadBuildingList();
             }
-            else
-            {
-                MessageBox.Show("Sửa dãy nhà THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadBuildingList();
-            }
+            
         }
 
 

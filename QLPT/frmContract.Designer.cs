@@ -31,9 +31,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.btnEditAccount = new System.Windows.Forms.Button();
-            this.btnAddAccount = new System.Windows.Forms.Button();
-            this.btnDelAccount = new System.Windows.Forms.Button();
+            this.btnEditContract = new System.Windows.Forms.Button();
+            this.btnAddContract = new System.Windows.Forms.Button();
+            this.btnDelContract = new System.Windows.Forms.Button();
             this.dgvContract = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -91,53 +91,53 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.Control;
-            this.panel10.Controls.Add(this.btnEditAccount);
-            this.panel10.Controls.Add(this.btnAddAccount);
-            this.panel10.Controls.Add(this.btnDelAccount);
+            this.panel10.Controls.Add(this.btnEditContract);
+            this.panel10.Controls.Add(this.btnAddContract);
+            this.panel10.Controls.Add(this.btnDelContract);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 552);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(582, 168);
             this.panel10.TabIndex = 1;
             // 
-            // btnEditAccount
+            // btnEditContract
             // 
-            this.btnEditAccount.BackColor = System.Drawing.Color.Silver;
-            this.btnEditAccount.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnEditAccount.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAccount.Location = new System.Drawing.Point(0, 0);
-            this.btnEditAccount.Name = "btnEditAccount";
-            this.btnEditAccount.Size = new System.Drawing.Size(582, 58);
-            this.btnEditAccount.TabIndex = 11;
-            this.btnEditAccount.Text = "Sửa thông tin hợp đồng";
-            this.btnEditAccount.UseVisualStyleBackColor = false;
-            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
+            this.btnEditContract.BackColor = System.Drawing.Color.Silver;
+            this.btnEditContract.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnEditContract.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditContract.Location = new System.Drawing.Point(0, 0);
+            this.btnEditContract.Name = "btnEditContract";
+            this.btnEditContract.Size = new System.Drawing.Size(582, 58);
+            this.btnEditContract.TabIndex = 11;
+            this.btnEditContract.Text = "Sửa thông tin hợp đồng";
+            this.btnEditContract.UseVisualStyleBackColor = false;
+            this.btnEditContract.Click += new System.EventHandler(this.btnEditContract_Click);
             // 
-            // btnAddAccount
+            // btnAddContract
             // 
-            this.btnAddAccount.BackColor = System.Drawing.Color.Silver;
-            this.btnAddAccount.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAddAccount.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAccount.Location = new System.Drawing.Point(0, 58);
-            this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(582, 55);
-            this.btnAddAccount.TabIndex = 12;
-            this.btnAddAccount.Text = "Thêm hợp đồng";
-            this.btnAddAccount.UseVisualStyleBackColor = false;
-            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
+            this.btnAddContract.BackColor = System.Drawing.Color.Silver;
+            this.btnAddContract.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAddContract.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddContract.Location = new System.Drawing.Point(0, 58);
+            this.btnAddContract.Name = "btnAddContract";
+            this.btnAddContract.Size = new System.Drawing.Size(582, 55);
+            this.btnAddContract.TabIndex = 12;
+            this.btnAddContract.Text = "Thêm hợp đồng";
+            this.btnAddContract.UseVisualStyleBackColor = false;
+            this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
             // 
-            // btnDelAccount
+            // btnDelContract
             // 
-            this.btnDelAccount.BackColor = System.Drawing.Color.Silver;
-            this.btnDelAccount.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDelAccount.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelAccount.Location = new System.Drawing.Point(0, 113);
-            this.btnDelAccount.Name = "btnDelAccount";
-            this.btnDelAccount.Size = new System.Drawing.Size(582, 55);
-            this.btnDelAccount.TabIndex = 13;
-            this.btnDelAccount.Text = "Xóa hợp dồng";
-            this.btnDelAccount.UseVisualStyleBackColor = false;
-            this.btnDelAccount.Click += new System.EventHandler(this.btnDelAccount_Click);
+            this.btnDelContract.BackColor = System.Drawing.Color.Silver;
+            this.btnDelContract.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDelContract.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelContract.Location = new System.Drawing.Point(0, 113);
+            this.btnDelContract.Name = "btnDelContract";
+            this.btnDelContract.Size = new System.Drawing.Size(582, 55);
+            this.btnDelContract.TabIndex = 13;
+            this.btnDelContract.Text = "Xóa hợp dồng";
+            this.btnDelContract.UseVisualStyleBackColor = false;
+            this.btnDelContract.Click += new System.EventHandler(this.btnDelContract_Click);
             // 
             // dgvContract
             // 
@@ -418,9 +418,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvContract;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnAddAccount;
-        private System.Windows.Forms.Button btnDelAccount;
-        private System.Windows.Forms.Button btnEditAccount;
+        private System.Windows.Forms.Button btnAddContract;
+        private System.Windows.Forms.Button btnDelContract;
+        private System.Windows.Forms.Button btnEditContract;
         private System.Windows.Forms.TextBox txtSurName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

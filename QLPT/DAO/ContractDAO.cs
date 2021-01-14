@@ -36,16 +36,16 @@ namespace QLPT.DAO
             return contractList;
         }
 
-        // Thêm Account
+        // Thêm 
         //string idContract, string numberRoom, string cmnd, string surName, string lastName, string name, string sexual, DateTime? dateTime, string statusDepositMoney, double depositMoney
-        public bool InsertContract(string idContract, string numberRoom, string cmnd, DateTime? dateTime, string statusDepositMoney, double depositMoney)
+        public bool InsertContract(string idContract, string numberRoom, string cmnd, string statusDepositMoney, double depositMoney)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("insertContract @idContract= N'"+idContract+"', @idRoom= N'" + numberRoom+"', @cmnd= N'" + cmnd+"', @statusDeposit= N'" + statusDepositMoney+"', @dateTime= '" + dateTime+"', @depositMoney=" + depositMoney+"");
+            int result = DataProvider.Instance.ExecuteNonQuery("insertContract @idContract= N'"+idContract+"', @idRoom= N'" + numberRoom+"', @cmnd= N'" + cmnd+"', @statusDeposit= N'" + statusDepositMoney+"', @depositMoney=" + depositMoney+"");
 
             return result > 0;
         }
 
-        // Sửa Account
+        // Sửa
         public bool EditContract(string idContract, string numberRoom, string cmnd, DateTime? dateTime, string statusDepositMoney, double depositMoney)
         {
             int result = DataProvider.Instance.ExecuteNonQuery("updateContract @idContract= N'"+idContract+"', @idRoom= N'" + numberRoom+"', @cmnd= N'" + cmnd+"', @statusDeposit= N'" + statusDepositMoney+"', @dateTime= '" + dateTime+"', @depositMoney=" + depositMoney+"");
@@ -53,7 +53,7 @@ namespace QLPT.DAO
             return result > 0;
         }
 
-        // Xóa Account
+        // Xóa 
         public bool DelContract(string idContract)
         {
             int result = DataProvider.Instance.ExecuteNonQuery("delContract @idContract= N'"+idContract+"'");
