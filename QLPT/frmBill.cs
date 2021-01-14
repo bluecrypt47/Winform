@@ -19,8 +19,14 @@ namespace QLPT
             InitializeComponent();
             loadIDRoom();
             loadCmnd();
+
+            //string id = cbxCMND.Text;
+            //loadCmnd(id);
         }
         #region Methods
+
+        // 
+        
 
         // Load
         private void loadBillList()
@@ -45,6 +51,13 @@ namespace QLPT
             cbxCMND.DataSource = customerIDList;
             cbxCMND.DisplayMember = "cMND";
         }
+        //public void loadCmnd(string id)
+        //{
+        //    List<Customer> customerIDList = CustomerDAO.Instance.loadIDCustomerList(id);
+
+        //    cbxCMND.DataSource = customerIDList;
+        //    cbxCMND.DisplayMember = "cMND";
+        //}
 
         #endregion
 
@@ -86,16 +99,26 @@ namespace QLPT
             double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
             double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
 
-            if (BillDAO.Instance.InsertBill(idBill, idRoom, CMND, oldNumberWater, newNumberWater, oldNumberElectric, newNumberElectric))
+            if(oldNumberWater > newNumberWater || oldNumberElectric >newNumberElectric)
             {
-                MessageBox.Show("Thêm hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! Mời bạn xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
             else
             {
-                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
-                loadBillList();
+                if (BillDAO.Instance.InsertBill(idBill, idRoom, CMND, oldNumberWater, newNumberWater, oldNumberElectric, newNumberElectric))
+                {
+                    MessageBox.Show("Thêm hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBillList();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm hóa đơn THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
+                    loadBillList();
+                }
             }
+
+            
 
         }
 

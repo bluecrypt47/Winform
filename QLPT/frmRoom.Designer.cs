@@ -335,7 +335,6 @@
             this.cbxNumberRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNumberRoom.FormattingEnabled = true;
             this.cbxNumberRoom.Items.AddRange(new object[] {
-            "0",
             "1",
             "2",
             "3"});

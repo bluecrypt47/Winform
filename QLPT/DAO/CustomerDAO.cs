@@ -35,6 +35,21 @@ namespace QLPT.DAO
             return customerList;
         }
 
+        public List<Customer> loadIDCustomerList(string id)
+        {
+            List<Customer> customerIDList = new List<Customer>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("select CMND from HopDongThueNha where SoPhong =N' " + id+"'");
+
+            foreach (DataRow item in data.Rows)
+            {
+                Customer customers = new Customer(item);
+
+                customerIDList.Add(customers);
+            }
+
+            return customerIDList;
+        }
+
         // Thêm
         public bool InsertCustomer(string cmnd, string surName, string lastName, string name, string sexual)
         {

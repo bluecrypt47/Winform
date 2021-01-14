@@ -154,5 +154,7 @@ namespace QLPT
             dgvRoom.Columns[8].HeaderText = "Tình trạng tiền cọc";
         }
         #endregion
+
+        
     }
 }
