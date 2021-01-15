@@ -30,6 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.dgvCustomer = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAddCustomer = new System.Windows.Forms.Button();
@@ -52,8 +54,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -62,6 +66,7 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,17 +76,38 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(955, 734);
+            this.panel1.Size = new System.Drawing.Size(986, 734);
             this.panel1.TabIndex = 1;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dgvCustomer);
+            this.panel3.Controls.Add(this.panel11);
+            this.panel3.Controls.Add(this.panel10);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(450, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(505, 734);
+            this.panel3.Size = new System.Drawing.Size(536, 734);
             this.panel3.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panel10.Controls.Add(this.label7);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(536, 81);
+            this.panel10.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(33, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(443, 46);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Danh sách khách hàng";
             // 
             // dgvCustomer
             // 
@@ -93,7 +119,7 @@
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.RowHeadersWidth = 51;
             this.dgvCustomer.RowTemplate.Height = 24;
-            this.dgvCustomer.Size = new System.Drawing.Size(505, 734);
+            this.dgvCustomer.Size = new System.Drawing.Size(536, 653);
             this.dgvCustomer.TabIndex = 10;
             this.dgvCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomer_CellClick);
             // 
@@ -314,11 +340,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Khách hàng";
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.dgvCustomer);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(0, 81);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(536, 653);
+            this.panel11.TabIndex = 12;
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 734);
+            this.ClientSize = new System.Drawing.Size(986, 734);
             this.Controls.Add(this.panel1);
             this.Name = "frmCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -326,6 +361,8 @@
             this.Load += new System.EventHandler(this.frmCustomer_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -340,6 +377,7 @@
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -370,5 +408,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel11;
     }
 }

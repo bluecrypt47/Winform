@@ -30,6 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.dgvBuilding = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -43,13 +45,16 @@
             this.btnEditBuilding = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuilding)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,12 +69,33 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dgvBuilding);
+            this.panel3.Controls.Add(this.panel8);
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(450, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(558, 681);
             this.panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(558, 65);
+            this.panel4.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(112, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(375, 46);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Danh sách dãy nhà";
             // 
             // dgvBuilding
             // 
@@ -81,7 +107,7 @@
             this.dgvBuilding.Name = "dgvBuilding";
             this.dgvBuilding.RowHeadersWidth = 51;
             this.dgvBuilding.RowTemplate.Height = 24;
-            this.dgvBuilding.Size = new System.Drawing.Size(558, 681);
+            this.dgvBuilding.Size = new System.Drawing.Size(558, 616);
             this.dgvBuilding.TabIndex = 0;
             this.dgvBuilding.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuilding_CellClick);
             // 
@@ -215,6 +241,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "DÃY NHÀ";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.dgvBuilding);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 65);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(558, 616);
+            this.panel8.TabIndex = 2;
+            // 
             // frmBuilding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -227,6 +262,8 @@
             this.Load += new System.EventHandler(this.frmBuilding_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuilding)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -235,6 +272,7 @@
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -256,5 +294,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvBuilding;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel8;
     }
 }

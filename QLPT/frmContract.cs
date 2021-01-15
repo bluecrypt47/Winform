@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -94,7 +95,7 @@ namespace QLPT
                     loadListContract();
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 MessageBox.Show("Sửa hợp đồng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListContract();
@@ -177,6 +178,7 @@ namespace QLPT
             dgvContract.Columns[8].HeaderText = "Tên";
             dgvContract.Columns[9].HeaderText = "Giới tính";
         }
+
 
 
         #endregion

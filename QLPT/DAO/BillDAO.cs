@@ -73,7 +73,7 @@ namespace QLPT.DAO
         // Sửa
         public bool EditBill(string idBill, string idRoom, string CMND, double oldNumberWater, double newNumberWater, double oldNumberElectric, double newNumberElectric)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("updateBill @idBill= N'"+idBill+"', @idRoom= N'" + idRoom+"', @cmnd= N'" + CMND+"', @dateTime= getdate(), @oldNumberWater= " + oldNumberWater+", @newNumberWater= " + newNumberWater+", @oldNumberElectric= " + oldNumberElectric+", @newNumberElectric= "+newNumberElectric+"");
+            int result = DataProvider.Instance.ExecuteNonQuery("updateBill @idBill= N'"+idBill+"', @idRoom= N'" + idRoom+"', @cmnd= N'" + CMND+"', @oldNumberWater= " + oldNumberWater+", @newNumberWater= " + newNumberWater+", @oldNumberElectric= " + oldNumberElectric+", @newNumberElectric= "+newNumberElectric+"");
 
             return result > 0;
         }

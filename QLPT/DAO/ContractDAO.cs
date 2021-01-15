@@ -48,7 +48,7 @@ namespace QLPT.DAO
         // Sửa
         public bool EditContract(string idContract, string numberRoom, string cmnd, DateTime? dateTime, string statusDepositMoney, double depositMoney)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("updateContract @idContract= N'"+idContract+"', @idRoom= N'" + numberRoom+"', @cmnd= N'" + cmnd+"', @statusDeposit= N'" + statusDepositMoney+"', @dateTime= '" + dateTime+"', @depositMoney=" + depositMoney+"");
+            int result = DataProvider.Instance.ExecuteNonQuery("set dateformat dmy exec updateContract @idContract =N'" + idContract+"', @idRoom= N'"+numberRoom+"', @cmnd= N'"+cmnd+"', @statusDeposit= N'"+statusDepositMoney+"', @dateTime= N'"+dateTime+"', @depositMoney= "+depositMoney+"");
 
             return result > 0;
         }

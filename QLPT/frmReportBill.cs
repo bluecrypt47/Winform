@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -42,28 +43,36 @@ namespace QLPT
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            using (ReportBillContextDB context = new ReportBillContextDB())
+            try
             {
-                string id = cbxBill.Text;
-                string query = "select h.IDHoaDon, h.SoPhong, h.CMND, k.Ho, k.TenLot, k.Ten, h.NgayLap, h.ChiSoNuocCu, h.ChiSoNuocMoi, h.ChiSoDienCu, h.ChiSoDienMoi, p.GiaPhong, (p.GiaPhong + ((h.ChiSoNuocMoi- h.ChiSoNuocCu)*15000) + (h.ChiSoDienMoi - h.ChiSoDienCu)* 3000 ) as [ThanhTien]  from HoaDon h, Phong p, KhachHang k where h.CMND = k.CMND and h.SoPhong = p.SoPhong and h.IDHoaDon = N'" + id + "'";
-
-
-                List<ReportBill> listReport = context.Database.SqlQuery<ReportBill>(query).ToList();
-
-                if (cbxBill.Text != "")
+                using (ReportBillContextDB context = new ReportBillContextDB())
                 {
-                    listReport = listReport.Where(p => p.IDHoaDon.ToLower() == cbxBill.Text.ToLower()).ToList();
+                    string id = cbxBill.Text;
+                    string query = "select h.IDHoaDon, h.SoPhong, h.CMND, k.Ho, k.TenLot, k.Ten, h.NgayLap, h.ChiSoNuocCu, h.ChiSoNuocMoi, h.ChiSoDienCu, h.ChiSoDienMoi, p.GiaPhong, (p.GiaPhong + ((h.ChiSoNuocMoi- h.ChiSoNuocCu)*15000) + (h.ChiSoDienMoi - h.ChiSoDienCu)* 3000 ) as [ThanhTien]  from HoaDon h, Phong p, KhachHang k where h.CMND = k.CMND and h.SoPhong = p.SoPhong and h.IDHoaDon = N'" + id + "'";
+
+
+                    List<ReportBill> listReport = context.Database.SqlQuery<ReportBill>(query).ToList();
+
+                    if (cbxBill.Text != "")
+                    {
+                        listReport = listReport.Where(p => p.IDHoaDon.ToLower() == cbxBill.Text.ToLower()).ToList();
+                    }
+
+
+                    this.rpvBill.LocalReport.ReportPath = "E:/Project/Winform/QLPT/QLPT/ReportBill.rdlc";
+
+                    ReportDataSource report = new ReportDataSource("ReportBillDataSet", listReport);
+
+                    this.rpvBill.LocalReport.DataSources.Clear();
+                    this.rpvBill.LocalReport.DataSources.Add(report);
+                    this.rpvBill.RefreshReport();
                 }
-
-
-                this.rpvBill.LocalReport.ReportPath = "E:/Project/Winform/QLPT/QLPT/ReportBill.rdlc";
-
-                ReportDataSource report = new ReportDataSource("ReportBillDataSet", listReport);
-
-                this.rpvBill.LocalReport.DataSources.Clear();
-                this.rpvBill.LocalReport.DataSources.Add(report);
-                this.rpvBill.RefreshReport();
             }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Lỗi!!! Vui lòng xem lại MÃ HÓA ĐƠN!", "thông báo", MessageBoxButtons.OK);
+            }
+            
         }
     }
 }

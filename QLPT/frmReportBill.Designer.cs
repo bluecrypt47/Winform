@@ -42,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(263, 25);
+            this.label1.Location = new System.Drawing.Point(370, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 19);
             this.label1.TabIndex = 1;
@@ -50,7 +50,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(586, 19);
+            this.btnView.Location = new System.Drawing.Point(693, 29);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(90, 32);
             this.btnView.TabIndex = 3;
@@ -60,8 +60,9 @@
             // 
             // cbxBill
             // 
+            this.cbxBill.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBill.FormattingEnabled = true;
-            this.cbxBill.Location = new System.Drawing.Point(400, 24);
+            this.cbxBill.Location = new System.Drawing.Point(507, 34);
             this.cbxBill.Name = "cbxBill";
             this.cbxBill.Size = new System.Drawing.Size(151, 24);
             this.cbxBill.TabIndex = 4;
@@ -73,10 +74,10 @@
             reportDataSource1.Value = this.ReportBillBindingSource;
             this.rpvBill.LocalReport.DataSources.Add(reportDataSource1);
             this.rpvBill.LocalReport.ReportEmbeddedResource = "QLPT.ReportBill.rdlc";
-            this.rpvBill.Location = new System.Drawing.Point(0, 101);
+            this.rpvBill.Location = new System.Drawing.Point(0, 94);
             this.rpvBill.Name = "rpvBill";
             this.rpvBill.ServerReport.BearerToken = null;
-            this.rpvBill.Size = new System.Drawing.Size(1014, 525);
+            this.rpvBill.Size = new System.Drawing.Size(1355, 525);
             this.rpvBill.TabIndex = 5;
             // 
             // ReportBillBindingSource
@@ -87,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 626);
+            this.ClientSize = new System.Drawing.Size(1355, 619);
             this.Controls.Add(this.rpvBill);
             this.Controls.Add(this.cbxBill);
             this.Controls.Add(this.btnView);

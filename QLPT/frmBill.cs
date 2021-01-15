@@ -202,7 +202,7 @@ namespace QLPT
             }
             catch (SqlException)
             {
-                MessageBox.Show("Thêm hóa đơn THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa hóa đơn THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
         }
