@@ -88,6 +88,14 @@ namespace QLPT
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmReportBill reportBill = new frmReportBill();
+            this.Hide();
+            reportBill.ShowDialog();
+            this.Show();
+        }
+
 
         // Thêm
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -221,5 +229,6 @@ namespace QLPT
         }
         #endregion
 
+      
     }
 }

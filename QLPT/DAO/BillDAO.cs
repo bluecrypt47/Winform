@@ -37,6 +37,23 @@ namespace QLPT.DAO
             return billList;
         }
 
+        // Load id bill
+        public List<IDBill> loadIDBill()
+        {
+            List<IDBill> billList = new List<IDBill>();
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("select IDHoaDon from HoaDon");
+
+            foreach (DataRow item in data.Rows)
+            {
+                IDBill bill = new IDBill(item);
+
+                billList.Add(bill);
+            }
+
+            return billList;
+        }
+
         // Thêm
         public bool InsertBill(string idBill, string idRoom, string CMND,  double oldNumberWater, double newNumberWater, double oldNumberElectric, double newNumberElectric)
         {

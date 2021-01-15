@@ -1,4 +1,3 @@
-E:\Project\Winform\QLPT\QLPT\obj\Debug\QLPT.csprojAssemblyReference.cache
 E:\Project\Winform\QLPT\QLPT\obj\Debug\QLPT.Properties.Resources.resources
 E:\Project\Winform\QLPT\QLPT\obj\Debug\QLPT.csproj.GenerateResource.cache
 E:\Project\Winform\QLPT\QLPT\obj\Debug\QLPT.csproj.CoreCompileInputs.cache
@@ -73,3 +72,11 @@ E:\Project\Winform\QLPT\QLPT\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resour
 E:\Project\Winform\QLPT\QLPT\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\Project\Winform\QLPT\QLPT\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 E:\Project\Winform\QLPT\QLPT\obj\Debug\QLPT.csproj.CopyComplete
+E:\Project\Winform\QLPT\QLPT\obj\Debug\QLPT.frmReportBill.resources
+E:\Project\Winform\QLPT\QLPT\obj\Debug\RdlCompile.cache
+E:\Project\Winform\QLPT\QLPT\obj\Debug\RdlCompile.compiled
+E:\Project\Winform\QLPT\QLPT\bin\Debug\EntityFramework.dll
+E:\Project\Winform\QLPT\QLPT\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\Winform\QLPT\QLPT\bin\Debug\EntityFramework.xml
+E:\Project\Winform\QLPT\QLPT\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\Winform\QLPT\QLPT\obj\Debug\QLPT.csprojAssemblyReference.cache

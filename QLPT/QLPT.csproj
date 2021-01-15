@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -52,7 +58,10 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,14 +79,23 @@
     <Compile Include="DAO\ContractDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\DayNha.cs" />
     <Compile Include="DAO\DetailsRoomDAO.cs" />
+    <Compile Include="DAO\HoaDon.cs" />
+    <Compile Include="DAO\HopDongThueNha.cs" />
+    <Compile Include="DAO\KhachHang.cs" />
+    <Compile Include="DAO\Phong.cs" />
+    <Compile Include="DAO\ReportBillContextDB.cs" />
     <Compile Include="DAO\RoomDAO.cs" />
     <Compile Include="DAO\RoomNonDAO.cs" />
+    <Compile Include="DAO\TaiKhoan.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\Building.cs" />
     <Compile Include="DTO\Contract.cs" />
     <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\IDBill.cs" />
+    <Compile Include="DTO\ReportBill.cs" />
     <Compile Include="DTO\Room.cs" />
     <Compile Include="DTO\RoomID.cs" />
     <Compile Include="DTO\RoomNon.cs" />
@@ -117,6 +135,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportBill.Designer.cs">
+      <DependentUpon>frmReportBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +168,9 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportBill.resx">
+      <DependentUpon>frmReportBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRoom.resx">
       <DependentUpon>frmRoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,7 +183,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportBill.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\QLPT.DTO.ReportBill.datasource" />
+    <None Include="Properties\DataSources\QLPT.DTO.ReportBill1.datasource" />
+    <None Include="Properties\DataSources\QLPT.DTO.ReportBill2.datasource" />
+    <None Include="Properties\DataSources\QLPT.DTO.ReportBill3.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -60,6 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -167,19 +168,20 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.txtTotalBill);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 610);
+            this.panel5.Location = new System.Drawing.Point(0, 524);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(466, 110);
+            this.panel5.Size = new System.Drawing.Size(466, 196);
             this.panel5.TabIndex = 10;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(92, 31);
+            this.label14.Location = new System.Drawing.Point(164, 28);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(142, 33);
             this.label14.TabIndex = 23;
@@ -187,7 +189,7 @@
             // 
             // txtTotalBill
             // 
-            this.txtTotalBill.Location = new System.Drawing.Point(240, 40);
+            this.txtTotalBill.Location = new System.Drawing.Point(240, 109);
             this.txtTotalBill.Name = "txtTotalBill";
             this.txtTotalBill.Size = new System.Drawing.Size(207, 22);
             this.txtTotalBill.TabIndex = 10;
@@ -216,7 +218,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 78);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(466, 532);
+            this.panel6.Size = new System.Drawing.Size(466, 446);
             this.panel6.TabIndex = 8;
             // 
             // cbxCMND
@@ -403,6 +405,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Hóa đơn";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(86, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 101);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "In hóa đơn";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -411,7 +424,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmBill";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmBill";
+            this.Text = "Hóa đơn";
             this.Load += new System.EventHandler(this.frmBill_Load);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -462,5 +475,6 @@
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.Button btnEditCustomer;
         private System.Windows.Forms.Button btnDelCustomer;
+        private System.Windows.Forms.Button button1;
     }
 }
