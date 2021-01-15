@@ -47,7 +47,7 @@ namespace QLPT
         // hiển thị phòng trống
         private void dgvRoomNon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 // lưu dữ liệu khi click
                 DataGridViewRow data = this.dgvRoomNon.Rows[e.RowIndex];
@@ -78,6 +78,12 @@ namespace QLPT
                 double numberPeopleRoom = Convert.ToDouble(cbxNumberRoom.Text);
                 double priceRoom = Convert.ToDouble(txtPriceRoom.Text);
 
+                if (idRoom == "" )
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi THÊM!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (RoomNonDAO.Instance.InsertRoomNon(idRoom, idBuilding, numberPeopleRoom, priceRoom))
                 {
                     MessageBox.Show("Thêm phòng thành công!!!", "Thông báo", MessageBoxButtons.OK);
@@ -92,7 +98,7 @@ namespace QLPT
             }
             catch(SqlException)
             {
-                MessageBox.Show("Thêm phòng thất bại!!!\n Vui lòng kiểm tra lại MÃ PHÒNG", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm phòng thất bại!!!\nVui lòng kiểm tra lại MÃ PHÒNG", "Thông báo", MessageBoxButtons.OK);
                 loadListRoomNon();
             }
             
@@ -105,6 +111,12 @@ namespace QLPT
             try
             {
                 string idRoom = txtIDRoom.Text;
+
+                if (idRoom == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi XÓA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
 
                 if (RoomNonDAO.Instance.DelRoom(idRoom))
                 {
@@ -119,7 +131,7 @@ namespace QLPT
             }
             catch(SqlException ex)
             {
-                MessageBox.Show("Xóa phòng thất bại!!!\n Vui lòng kiểm tra lại MÃ PHÒNG!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa phòng thất bại!!!\nVui lòng kiểm tra lại MÃ PHÒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListRoomNon();
             }
             
@@ -136,6 +148,12 @@ namespace QLPT
                 string statusRoom = txtStatusRoom.Text;
                 double priceRoom = Convert.ToDouble(txtPriceRoom.Text);
 
+                if (idRoom == "" && statusRoom == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi SỬA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (RoomNonDAO.Instance.EditRoom(idRoom, idBuilding, numberPeopleRoom, statusRoom, priceRoom))
                 {
                     MessageBox.Show("Sửa phòng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -150,7 +168,7 @@ namespace QLPT
             }
             catch(SqlException)
             {
-                MessageBox.Show("Sửa phòng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ PHÒNG!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa phòng THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ PHÒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListRoomNon();
             }
             

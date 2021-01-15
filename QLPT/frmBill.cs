@@ -67,7 +67,7 @@ namespace QLPT
         // gán các dữ liệu nấn vào vào textBox
         private void dgvBill_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 // lưu dữ liệu khi click
                 DataGridViewRow data = this.dgvBill.Rows[e.RowIndex];
@@ -110,6 +110,12 @@ namespace QLPT
                 double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
                 double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
 
+                if (idBill == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi THÊM!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (oldNumberWater > newNumberWater || oldNumberElectric > newNumberElectric)
                 {
                     MessageBox.Show("Thêm hóa đơn THẤT BẠI!!! \nVui lòng xem lại các chỉ số điện nước!", "Thông báo", MessageBoxButtons.OK);
@@ -146,6 +152,12 @@ namespace QLPT
             try
             {
                 string idBill = txtIDBill.Text;
+                if (idBill == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi XÓA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (BillDAO.Instance.DelBill(idBill))
                 {
                     MessageBox.Show("Xóa hóa đơn THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -159,7 +171,7 @@ namespace QLPT
             }
             catch(SqlException )
             {
-                MessageBox.Show("Xóa hóa đơn THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HÓA ĐƠN", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa hóa đơn THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ HÓA ĐƠN", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
 
@@ -180,6 +192,12 @@ namespace QLPT
                 double newNumberElectric = Convert.ToDouble(txtNewNumberElectirc.Text);
                 double oldNumberWater = Convert.ToDouble(txtOldNumberWater.Text);
                 double newNumberWater = Convert.ToDouble(txtNewNumberWater.Text);
+
+                if (idBill == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi SỬA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
 
                 if (oldNumberWater > newNumberWater || oldNumberElectric > newNumberElectric)
                 {
@@ -202,7 +220,7 @@ namespace QLPT
             }
             catch (SqlException)
             {
-                MessageBox.Show("Sửa hóa đơn THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa hóa đơn THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ HÓA ĐƠN!", "Thông báo", MessageBoxButtons.OK);
                 loadBillList();
             }
         }

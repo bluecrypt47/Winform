@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QLPT.DAO
 {
@@ -48,9 +49,18 @@ namespace QLPT.DAO
         // Xóa building
         public bool DelBuilding(string idBuilding)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("delBuilding N'"+idBuilding+"'");
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn Xóa?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int result = DataProvider.Instance.ExecuteNonQuery("delBuilding N'" + idBuilding + "'");
 
-            return result > 0;
+                return result > 0;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         // sửa building

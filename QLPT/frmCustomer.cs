@@ -42,6 +42,12 @@ namespace QLPT
                 string name = txtFirstName.Text;
                 string sexual = txtSexual.Text;
 
+                if (cmnd == "" && surName == "" && lastName == "" && name == "" && sexual =="")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi THÊM!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (CustomerDAO.Instance.InsertCustomer(cmnd, surName, lastName, name, sexual))
                 {
                     MessageBox.Show("Thêm khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -55,7 +61,7 @@ namespace QLPT
             }
             catch(Exception)
             {
-                MessageBox.Show("Thêm khách hàng THẤT BẠI!!!\n Vui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm khách hàng THẤT BẠI!!!\nVui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
                 loadCustomerList();
             }
             
@@ -67,6 +73,11 @@ namespace QLPT
             try
             {
                 string cmnd = txtIDCard.Text;
+                if (cmnd == "" )
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi XÓA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
 
                 if (CustomerDAO.Instance.DelCustomer(cmnd))
                 {
@@ -81,7 +92,7 @@ namespace QLPT
             }
             catch(Exception)
             {
-                MessageBox.Show("Xóa khách hàng THẤT BẠI!!!\n Vui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa khách hàng THẤT BẠI!!!\nVui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
                 loadCustomerList();
             }
             
@@ -100,6 +111,12 @@ namespace QLPT
                 string name = txtFirstName.Text;
                 string sexual = txtSexual.Text;
 
+                if (cmnd == "" && surName == "" && lastName == "" && name == "" && sexual == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi SỬA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (CustomerDAO.Instance.UpdateCustomer(cmnd, surName, lastName, name, sexual))
                 {
                     MessageBox.Show("Sửa khách hàng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -113,7 +130,7 @@ namespace QLPT
             }
             catch(Exception)
             {
-                MessageBox.Show("Sửa khách hàng THẤT BẠI!!!\n Vui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa khách hàng THẤT BẠI!!!\nVui lòng kiểm tra lại CMND!", "Thông báo", MessageBoxButtons.OK);
                 loadCustomerList();
             }
             
@@ -121,7 +138,7 @@ namespace QLPT
 
         private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow data = this.dgvCustomer.Rows[e.RowIndex];
 

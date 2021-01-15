@@ -52,7 +52,7 @@ namespace QLPT
         #region Events
         private void dgvContract_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 // lưu dữ liệu khi click
                 DataGridViewRow data = this.dgvContract.Rows[e.RowIndex];
@@ -64,7 +64,7 @@ namespace QLPT
                 txtLastName.Text = data.Cells[7].Value.ToString();
                 txtName.Text = data.Cells[8].Value.ToString();
                 txtSexual.Text = data.Cells[9].Value.ToString();
-                txtDateTime.Text = data.Cells[4].Value.ToString();
+                dtpDateTime.Text = data.Cells[4].Value.ToString();
                 cbxStatusDepositMoney.Text = data.Cells[3].Value.ToString();
                 txtDepositMoney.Text = data.Cells[5].Value.ToString();
             }
@@ -80,9 +80,20 @@ namespace QLPT
                 string idConstract = txtIDContract.Text;
                 string numberRoom = cbxNumberRoom.Text;
                 string cmnd = cbxCMND.Text;
-                DateTime datetime = Convert.ToDateTime(txtDateTime.Text);
+                DateTime? datetime = Convert.ToDateTime( dtpDateTime.Text);
                 string status = cbxStatusDepositMoney.Text;
                 double deposit = Convert.ToDouble(txtDepositMoney.Text);
+
+                if (idConstract == "" && status == "" )
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi SỬA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
+                if (datetime > DateTime.Now)
+                {
+                    MessageBox.Show("Vui lòng xem lại ngày chuyển vào!!!\nNgày chuyển vào sẽ là trước hoặc ngay ngày hiện hành!", "Thông báo", MessageBoxButtons.OK);
+                }
 
                 if (ContractDAO.Instance.EditContract(idConstract, numberRoom, cmnd, datetime, status, deposit))
                 {
@@ -97,7 +108,7 @@ namespace QLPT
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Sửa hợp đồng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa hợp đồng THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListContract();
             }
         }
@@ -116,6 +127,12 @@ namespace QLPT
                 string status = cbxStatusDepositMoney.Text;
                 double deposit = Convert.ToDouble(txtDepositMoney.Text);
 
+                if (idConstract == "" && status == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi THÊM!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (ContractDAO.Instance.InsertContract(idConstract, numberRoom, cmnd, status, deposit))
                 {
                     MessageBox.Show("Thêm hợp đồng THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -129,7 +146,7 @@ namespace QLPT
             }
             catch (Exception)
             {
-                MessageBox.Show("Thêm hợp đồng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm hợp đồng THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListContract();
             }
         }
@@ -142,6 +159,11 @@ namespace QLPT
             try
             {
                 string idConstract = txtIDContract.Text;
+                if (idConstract == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi XÓA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
 
                 if (ContractDAO.Instance.DelContract(idConstract))
                 {
@@ -156,7 +178,7 @@ namespace QLPT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Xóa hợp đồng THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa hợp đồng THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ HỢP ĐỒNG!", "Thông báo", MessageBoxButtons.OK);
                 loadListContract();
             }
         }

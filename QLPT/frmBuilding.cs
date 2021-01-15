@@ -52,6 +52,12 @@ namespace QLPT
             {
                 string idBuilding = txtIDBuilding.Text;
                 string addressBuildidng = txtAddressBuilding.Text;
+                
+                if(idBuilding == "" && addressBuildidng =="")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi THÊM!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
 
                 if (BuildingDAO.Instance.InsertBuilding(idBuilding, addressBuildidng))
                 {
@@ -67,7 +73,7 @@ namespace QLPT
             catch(SqlException)
             {
                 //MessageBox.Show(ex.Message);
-                MessageBox.Show("Thêm dãy nhà THẤT BẠI!!!\n Vui lòng kiểm tra lại MÃ DÃY NHÀ!!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm dãy nhà THẤT BẠI!!!\nVui lòng kiểm tra lại MÃ DÃY NHÀ!!!", "Thông báo", MessageBoxButtons.OK);
                 loadBuildingList();
             }
             
@@ -80,6 +86,12 @@ namespace QLPT
             {
                 string idBuilding = txtIDBuilding.Text;
 
+                if(idBuilding == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi XÓA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (BuildingDAO.Instance.DelBuilding(idBuilding))
                 {
                     MessageBox.Show("Xóa dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -90,6 +102,7 @@ namespace QLPT
                     MessageBox.Show("Xóa dãy nhà THẤT BẠI!!!", "Thông báo", MessageBoxButtons.OK);
                     loadBuildingList();
                 }
+                
             }
             catch(SqlException)
             {
@@ -113,6 +126,12 @@ namespace QLPT
                 string idBuilding = txtIDBuilding.Text;
                 string addressBuilding = txtAddressBuilding.Text;
 
+                if (idBuilding == "" && addressBuilding == "")
+                {
+                    MessageBox.Show("Vui lòng nhập trước khi SỬA!!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (BuildingDAO.Instance.UpdateBuilding(idBuilding, addressBuilding))
                 {
                     MessageBox.Show("Sửa dãy nhà THÀNH CÔNG!!!", "Thông báo", MessageBoxButtons.OK);
@@ -135,7 +154,7 @@ namespace QLPT
 
         private void dgvBuilding_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow data = this.dgvBuilding.Rows[e.RowIndex];
 

@@ -30,22 +30,23 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dgvContract = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnEditContract = new System.Windows.Forms.Button();
             this.btnAddContract = new System.Windows.Forms.Button();
             this.btnDelContract = new System.Windows.Forms.Button();
-            this.dgvContract = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.dtpDateTime = new System.Windows.Forms.DateTimePicker();
             this.cbxCMND = new System.Windows.Forms.ComboBox();
             this.cbxNumberRoom = new System.Windows.Forms.ComboBox();
             this.cbxStatusDepositMoney = new System.Windows.Forms.ComboBox();
             this.txtDepositMoney = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtDateTime = new System.Windows.Forms.TextBox();
             this.txtSexual = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -61,16 +62,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContract)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContract)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -93,6 +93,29 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(582, 720);
             this.panel3.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.dgvContract);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 78);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(582, 468);
+            this.panel7.TabIndex = 16;
+            // 
+            // dgvContract
+            // 
+            this.dgvContract.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvContract.BackgroundColor = System.Drawing.Color.White;
+            this.dgvContract.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContract.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvContract.Location = new System.Drawing.Point(0, 0);
+            this.dgvContract.Name = "dgvContract";
+            this.dgvContract.RowHeadersWidth = 51;
+            this.dgvContract.RowTemplate.Height = 24;
+            this.dgvContract.Size = new System.Drawing.Size(582, 468);
+            this.dgvContract.TabIndex = 14;
+            this.dgvContract.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContract_CellClick);
             // 
             // panel5
             // 
@@ -164,20 +187,6 @@
             this.btnDelContract.UseVisualStyleBackColor = false;
             this.btnDelContract.Click += new System.EventHandler(this.btnDelContract_Click);
             // 
-            // dgvContract
-            // 
-            this.dgvContract.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvContract.BackgroundColor = System.Drawing.Color.White;
-            this.dgvContract.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContract.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvContract.Location = new System.Drawing.Point(0, 0);
-            this.dgvContract.Name = "dgvContract";
-            this.dgvContract.RowHeadersWidth = 51;
-            this.dgvContract.RowTemplate.Height = 24;
-            this.dgvContract.Size = new System.Drawing.Size(582, 468);
-            this.dgvContract.TabIndex = 14;
-            this.dgvContract.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContract_CellClick);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel6);
@@ -191,13 +200,13 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel6.Controls.Add(this.dtpDateTime);
             this.panel6.Controls.Add(this.cbxCMND);
             this.panel6.Controls.Add(this.cbxNumberRoom);
             this.panel6.Controls.Add(this.cbxStatusDepositMoney);
             this.panel6.Controls.Add(this.txtDepositMoney);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label13);
-            this.panel6.Controls.Add(this.txtDateTime);
             this.panel6.Controls.Add(this.txtSexual);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.txtName);
@@ -215,6 +224,14 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(450, 617);
             this.panel6.TabIndex = 8;
+            // 
+            // dtpDateTime
+            // 
+            this.dtpDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateTime.Location = new System.Drawing.Point(246, 355);
+            this.dtpDateTime.Name = "dtpDateTime";
+            this.dtpDateTime.Size = new System.Drawing.Size(157, 22);
+            this.dtpDateTime.TabIndex = 20;
             // 
             // cbxCMND
             // 
@@ -251,6 +268,7 @@
             this.txtDepositMoney.Name = "txtDepositMoney";
             this.txtDepositMoney.Size = new System.Drawing.Size(198, 22);
             this.txtDepositMoney.TabIndex = 9;
+            this.txtDepositMoney.Text = "0";
             // 
             // label12
             // 
@@ -272,17 +290,11 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Tình trạng cọc";
             // 
-            // txtDateTime
-            // 
-            this.txtDateTime.Location = new System.Drawing.Point(246, 357);
-            this.txtDateTime.Name = "txtDateTime";
-            this.txtDateTime.Size = new System.Drawing.Size(198, 22);
-            this.txtDateTime.TabIndex = 8;
-            // 
             // txtSexual
             // 
             this.txtSexual.Location = new System.Drawing.Point(246, 305);
             this.txtSexual.Name = "txtSexual";
+            this.txtSexual.ReadOnly = true;
             this.txtSexual.Size = new System.Drawing.Size(198, 22);
             this.txtSexual.TabIndex = 7;
             // 
@@ -300,6 +312,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(246, 262);
             this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(199, 22);
             this.txtName.TabIndex = 6;
             // 
@@ -317,6 +330,7 @@
             // 
             this.txtLastName.Location = new System.Drawing.Point(246, 213);
             this.txtLastName.Name = "txtLastName";
+            this.txtLastName.ReadOnly = true;
             this.txtLastName.Size = new System.Drawing.Size(198, 22);
             this.txtLastName.TabIndex = 5;
             // 
@@ -344,6 +358,7 @@
             // 
             this.txtSurName.Location = new System.Drawing.Point(246, 167);
             this.txtSurName.Name = "txtSurName";
+            this.txtSurName.ReadOnly = true;
             this.txtSurName.Size = new System.Drawing.Size(198, 22);
             this.txtSurName.TabIndex = 4;
             // 
@@ -414,15 +429,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Hợp đồng";
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.dgvContract);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 78);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(582, 468);
-            this.panel7.TabIndex = 16;
-            // 
             // frmContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -435,16 +441,16 @@
             this.Load += new System.EventHandler(this.frmContract_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContract)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContract)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -471,7 +477,6 @@
         private System.Windows.Forms.TextBox txtDepositMoney;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtDateTime;
         private System.Windows.Forms.TextBox txtSexual;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtName;
@@ -479,11 +484,12 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbxStatusDepositMoney;
         private System.Windows.Forms.ComboBox cbxCMND;
         private System.Windows.Forms.ComboBox cbxNumberRoom;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.DateTimePicker dtpDateTime;
+        private System.Windows.Forms.ComboBox cbxStatusDepositMoney;
     }
 }

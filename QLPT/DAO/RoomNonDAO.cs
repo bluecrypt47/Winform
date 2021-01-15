@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QLPT.DAO
 {
@@ -47,14 +48,24 @@ namespace QLPT.DAO
         // Xóa
         public bool DelRoom(string idRoom)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("delRoom @idroom =N'"+idRoom+"'");
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn Xóa?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int result = DataProvider.Instance.ExecuteNonQuery("delRoom @idroom =N'" + idRoom + "'");
 
-            return result > 0;
+                return result > 0;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         // Sửa
         public bool EditRoom(string idRoom, string idBuilding, double numberPeopleRoom, string statusRoom, double priceRoom)
         {
+
             int result = DataProvider.Instance.ExecuteNonQuery("updateRoom @idroom=N'"+idRoom+"', @idbuilding= N'" + idBuilding+"', @number= " + numberPeopleRoom+", @status= N'" + statusRoom+"', @price =" + priceRoom+"");
 
             return result > 0;

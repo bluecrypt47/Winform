@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QLPT.DAO
 {
@@ -65,9 +66,18 @@ namespace QLPT.DAO
         // Xóa
         public bool DelBill(string idBill)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("delBill @idBill= N'"+idBill+"'");
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn Xóa?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int result = DataProvider.Instance.ExecuteNonQuery("delBill @idBill= N'" + idBill + "'");
 
-            return result > 0;
+                return result > 0;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         // Sửa
