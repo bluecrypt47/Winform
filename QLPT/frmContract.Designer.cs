@@ -40,7 +40,6 @@
             this.btnDelContract = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dtpDateTime = new System.Windows.Forms.DateTimePicker();
             this.cbxCMND = new System.Windows.Forms.ComboBox();
             this.cbxNumberRoom = new System.Windows.Forms.ComboBox();
             this.cbxStatusDepositMoney = new System.Windows.Forms.ComboBox();
@@ -62,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtpDateTime = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -224,14 +224,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(450, 617);
             this.panel6.TabIndex = 8;
-            // 
-            // dtpDateTime
-            // 
-            this.dtpDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateTime.Location = new System.Drawing.Point(246, 355);
-            this.dtpDateTime.Name = "dtpDateTime";
-            this.dtpDateTime.Size = new System.Drawing.Size(157, 22);
-            this.dtpDateTime.TabIndex = 20;
             // 
             // cbxCMND
             // 
@@ -429,6 +421,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Hợp đồng";
             // 
+            // dtpDateTime
+            // 
+            this.dtpDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateTime.Location = new System.Drawing.Point(246, 358);
+            this.dtpDateTime.Name = "dtpDateTime";
+            this.dtpDateTime.Size = new System.Drawing.Size(147, 22);
+            this.dtpDateTime.TabIndex = 20;
+            // 
             // frmContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -489,7 +489,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.DateTimePicker dtpDateTime;
         private System.Windows.Forms.ComboBox cbxStatusDepositMoney;
+        private System.Windows.Forms.DateTimePicker dtpDateTime;
     }
 }

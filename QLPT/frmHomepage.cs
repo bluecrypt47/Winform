@@ -49,8 +49,6 @@ namespace QLPT
             this.Show();
         }
 
-        
-
         private void btnContract_Click(object sender, EventArgs e)
         {
             frmContract customer = new frmContract();

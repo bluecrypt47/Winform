@@ -21,8 +21,6 @@ namespace QLPT
 
         }
 
-
-
         #region Methods
         // load Building
         public void loadBuildingList()
@@ -113,9 +111,6 @@ namespace QLPT
             
         }
 
-        
-
-
         //sửa 
         private void btnEditBuilding_Click(object sender, EventArgs e)
         {
@@ -166,8 +161,5 @@ namespace QLPT
         #endregion
 
         
-
-
-
     }
 }

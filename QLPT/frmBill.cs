@@ -24,6 +24,7 @@ namespace QLPT
             //string id = cbxCMND.Text;
             //loadCmnd(id);
         }
+
         #region Methods
 
         // 
@@ -182,7 +183,6 @@ namespace QLPT
         // Sửa
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-
             try
             {
                 string idBill = txtIDBill.Text;

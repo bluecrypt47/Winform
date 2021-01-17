@@ -174,10 +174,6 @@ namespace QLPT
             
         }
 
-
-
-        
-
         private void frmRoom_Load(object sender, EventArgs e)
         {
             loadListRoomNon();

@@ -36,11 +36,16 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txtPassWord);
             this.panel1.Controls.Add(this.lbllPassWord);
             this.panel1.Controls.Add(this.btnExit);
@@ -51,14 +56,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(572, 317);
+            this.panel1.Size = new System.Drawing.Size(857, 569);
             this.panel1.TabIndex = 3;
             // 
             // txtPassWord
             // 
-            this.txtPassWord.Location = new System.Drawing.Point(226, 135);
+            this.txtPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassWord.Location = new System.Drawing.Point(562, 283);
             this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(220, 22);
+            this.txtPassWord.Size = new System.Drawing.Size(220, 26);
             this.txtPassWord.TabIndex = 2;
             this.txtPassWord.Text = "ChuongIS";
             this.txtPassWord.UseSystemPasswordChar = true;
@@ -67,7 +73,7 @@
             // 
             this.lbllPassWord.AutoSize = true;
             this.lbllPassWord.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllPassWord.Location = new System.Drawing.Point(102, 129);
+            this.lbllPassWord.Location = new System.Drawing.Point(429, 280);
             this.lbllPassWord.Name = "lbllPassWord";
             this.lbllPassWord.Size = new System.Drawing.Size(118, 29);
             this.lbllPassWord.TabIndex = 5;
@@ -77,7 +83,7 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(339, 188);
+            this.btnExit.Location = new System.Drawing.Point(675, 336);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(107, 64);
             this.btnExit.TabIndex = 4;
@@ -89,7 +95,7 @@
             // 
             this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(226, 188);
+            this.btnLogin.Location = new System.Drawing.Point(562, 336);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(107, 64);
             this.btnLogin.TabIndex = 3;
@@ -99,9 +105,10 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(226, 91);
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(562, 239);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(220, 22);
+            this.txtUserName.Size = new System.Drawing.Size(220, 26);
             this.txtUserName.TabIndex = 1;
             this.txtUserName.Text = "chuong";
             // 
@@ -109,7 +116,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(155, 28);
+            this.label1.Location = new System.Drawing.Point(500, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(212, 38);
             this.label1.TabIndex = 0;
@@ -119,11 +126,46 @@
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(94, 85);
+            this.lblUserName.Location = new System.Drawing.Point(421, 236);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(126, 29);
             this.lblUserName.TabIndex = 0;
             this.lblUserName.Text = "Tài khoản";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(375, 569);
+            this.panel2.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Highlight;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(51, 309);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(263, 28);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Phần mềm quản lý nhà trọ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(40, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(293, 159);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "CPB";
             // 
             // frmLogin
             // 
@@ -131,7 +173,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(572, 317);
+            this.ClientSize = new System.Drawing.Size(857, 569);
             this.Controls.Add(this.panel1);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -139,6 +181,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -153,5 +197,8 @@
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
     }
 }

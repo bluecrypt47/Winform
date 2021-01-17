@@ -64,7 +64,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1073, 649);
+            this.panel8.Size = new System.Drawing.Size(1050, 651);
             this.panel8.TabIndex = 5;
             // 
             // panel10
@@ -74,7 +74,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(300, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(773, 649);
+            this.panel10.Size = new System.Drawing.Size(750, 651);
             this.panel10.TabIndex = 4;
             // 
             // panel2
@@ -84,7 +84,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(773, 150);
+            this.panel2.Size = new System.Drawing.Size(750, 150);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -109,7 +109,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 649);
+            this.panel1.Size = new System.Drawing.Size(300, 651);
             this.panel1.TabIndex = 2;
             // 
             // btnContract
@@ -241,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 649);
+            this.ClientSize = new System.Drawing.Size(1050, 651);
             this.Controls.Add(this.panel8);
             this.Name = "frmHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -98,8 +98,6 @@ namespace QLPT
             
         }
 
-
-
         // Sửa
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {

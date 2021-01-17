@@ -19,12 +19,6 @@ namespace QLPT
             InitializeComponent();
         }
 
-        
-
-        
-
-        
-
         public bool Login(string userName, string passWord)
         {
             return AccountDAO.Instance.Login(userName, passWord);
@@ -33,10 +27,9 @@ namespace QLPT
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-
             string userName = txtUserName.Text;
             string passWord = txtPassWord.Text;
+
             if (Login(userName, passWord))
             {
                 frmHomePage homePage = new frmHomePage();
